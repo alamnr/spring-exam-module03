@@ -64,5 +64,6 @@
 	<modules>
 		
     <module>module03-question01</module>
+    <module>module03-question02</module>
   </modules>
 </project>
