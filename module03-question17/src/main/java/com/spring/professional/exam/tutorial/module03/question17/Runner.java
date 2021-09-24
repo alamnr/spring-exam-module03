@@ -18,7 +18,7 @@ public class Runner {
 		
 		
 		try {
-			employeeService.manualTransaction();
+			employeeService.manualTransaction() ;
 		} catch (Exception e) {
 			System.out.println("Exception while executing manual transaction: "+ e.getMessage());
 		}
