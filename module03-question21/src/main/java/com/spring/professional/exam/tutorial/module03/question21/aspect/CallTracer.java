@@ -15,9 +15,10 @@ public class CallTracer {
 		
 	}
 	
-	@Around("rviceClassMethodTrace()")
+	@Around("serviceClassMethodTrace()")
 	public Object tarceCall(ProceedingJoinPoint joinPoint) throws Throwable {
-		
+		System.out.println();
+		System.out.println();
 		System.out.println("Starting method call : " + joinPoint.getSignature());
 		Object returnObjet = joinPoint.proceed();
 		System.out.println("Ending method call : " + joinPoint.getSignature());

@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-//@EnableAspectJAutoProxy
+@EnableAspectJAutoProxy
 public class DataSourceConfiguration {
 
 	@Bean

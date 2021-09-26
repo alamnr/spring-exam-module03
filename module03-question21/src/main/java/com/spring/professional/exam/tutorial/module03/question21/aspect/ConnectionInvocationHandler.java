@@ -11,7 +11,7 @@ public class ConnectionInvocationHandler implements InvocationHandler {
 	
 	private Connection connection;
 	
-	private static Set<String> LOGGABLE_METHODS = new HashSet<>(Arrays.asList("close,rollback,commit,setAutoCommit"));
+	private static Set<String> LOGGABLE_METHODS = new HashSet<>(Arrays.asList( "commit", "rollback", "close", "setAutoCommit"));
 	
 	public ConnectionInvocationHandler(Connection connection) {
 		this.connection = connection;
@@ -19,13 +19,13 @@ public class ConnectionInvocationHandler implements InvocationHandler {
 
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-		if(shouldLogMessage(method)) {
+		if(shouldLogInvocation(method)) {
 			System.out.println("Connection trace : " + method.toGenericString());
 		}
 		return method.invoke(connection, args);
 	}
 	
-	private boolean shouldLogMessage(Method method) {
+	private boolean shouldLogInvocation(Method method) {
 		return LOGGABLE_METHODS.contains(method.getName());
 	}
 

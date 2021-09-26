@@ -15,6 +15,8 @@ public class DataSourceAspect {
 	@Around("target(javax.sql.DataSource)")
 	public Object aroundDataSource(ProceedingJoinPoint joinPoint) throws Throwable {
 		if(joinPoint.getSignature().getName().contains("getConnection")) {
+			System.out.println();
+			System.out.println();
 			System.out.println("DataSource trace : " + joinPoint.getSignature());
 		}
 		
