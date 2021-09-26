@@ -1,4 +1,4 @@
-package com.spring.professional.exam.tutorial.module03.question20.aspect;
+package com.spring.professional.exam.tutorial.module03.question21.aspect;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -11,17 +11,17 @@ public class ConnectionInvocationHandler implements InvocationHandler {
 	
 	private Connection connection;
 	
-	private static Set<String> LOGGABLE_METHODS = new HashSet<>(Arrays.asList("commit","rollback","close","setAutoCommit"));
-
+	private static Set<String> LOGGABLE_METHODS = new HashSet<>(Arrays.asList("close,rollback,commit,setAutoCommit"));
+	
 	public ConnectionInvocationHandler(Connection connection) {
 		this.connection = connection;
 	}
-	
+
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 		if(shouldLogMessage(method)) {
 			System.out.println("Connection trace : " + method.toGenericString());
-		}		
+		}
 		return method.invoke(connection, args);
 	}
 	
