@@ -88,5 +88,7 @@
     <module>module03-question20</module>
     <module>module03-question21</module>
     <module>module03-question22</module>
+    <module>module03-question23</module>
+    <module>module03-question23-jta-tx</module>
   </modules>
 </project>
